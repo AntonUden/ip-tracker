@@ -1,7 +1,7 @@
 <?php
 	$username = "root";
 	$password = "root";
-	$image = './img.png';
+	$image = $_SERVER["DOCUMENT_ROOT"].'img.png';
 
 	function getUserIpAddr(){
 	    if(!empty($_SERVER['HTTP_CLIENT_IP'])){
@@ -30,9 +30,9 @@
 	}
 	
 	$fp = fopen($image, 'rb');
-
+	
 	header("Content-Type: image/png");
-	header("Content-Length: " . filesize($name));
+	header("Content-Length: " . filesize($image));
 
 	fpassthru($fp);
 ?>
